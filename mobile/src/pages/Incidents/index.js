@@ -12,7 +12,7 @@ import styles from './styles';
 export default function Incidents() {
   const [incidents, setIncidents] = useState([]);
   const [total, setTotal] = useState(0);
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
   const navigation = useNavigation();
@@ -63,7 +63,7 @@ export default function Incidents() {
         data={incidents}
         style={styles.incidentList}
         keyExtractor={incident => String(incident.id)}
-        showsVerticalScrollIndicator={false}
+        showsVerticalScrollIndicator={true}
         onEndReached={loadIncidents}
         onEndReachedThreshold={0.2}
         renderItem={({ item: incident }) => (
